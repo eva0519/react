@@ -43,7 +43,7 @@ const CategoriesBlock = styled.div`
     overflow-x: auto;
   }
 `;
-
+//NavLink 루터 속성이므로 Link와 비슷한데 스타일이 적용된 링크라고 보면됨. 고로 to 프롭 등으로 주소 지정이 가능
 const Category = styled(NavLink)`
   font-size: 1.125rem;
   cursor: pointer;
@@ -70,15 +70,15 @@ const Category = styled(NavLink)`
   }
 `;
 
-const Categories = ({ onSelect, category }) => {
+const Categories = () => {
   return (
     <CategoriesBlock>
       {categories.map(c => (
         <Category
           key={c.name}
           activeClassName='active'
-          exact={c.name==='all'}
-          to={c.name === 'all' ? '/' : `/${c.name}`}
+          exact={c.name==='all'}   //전체보기 카테고리를 / path로 설정했으니 exact가 true 여야 다른 url이 열렸을때 같이 안열림.
+          to={c.name === 'all' ? '/' : `/${c.name}`} // c.name이 all이면 /으로 설정 나머진 map함수 순서대로 url파라미터 배정
         >
           {c.text}
         </Category>

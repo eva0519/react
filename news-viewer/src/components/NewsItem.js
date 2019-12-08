@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import noimg from '../image/noimage.png';
 
 const NewsItemBlock = styled.div`
   display:flex;
@@ -36,16 +35,10 @@ const NewsItem = ({article}) => {
   const { title, description, url, urlToImage } = article;
   return (
     <NewsItemBlock>
-      {urlToImage ? (
+      {urlToImage && (
         <div className='thumbnail'>
           <a href={url} target='_blank' rel='noopener noreferrer'>
             <img src={urlToImage} alt="thumbnail"/>
-          </a>
-        </div>
-      ) : (
-        <div className='thumbnail'>
-          <a href={url} target='_blank' rel='noopener noreferrer'>
-            <img src={noimg} alt="thumbnail"/>
           </a>
         </div>
       )}
