@@ -1,3 +1,3 @@
 # react
 
-Study Ref
+Study Reference
